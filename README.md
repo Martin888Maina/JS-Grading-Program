@@ -56,15 +56,15 @@ cd JS-Grading-Program
 
 3. Open the application:
 ```bash
-# Simply open Index.html in your preferred web browser
+# Simply open index.html in your preferred web browser
 # On Windows:
-start Index.html
+start index.html
 
 # On macOS:
-open Index.html
+open index.html
 
 # On Linux:
-xdg-open Index.html
+xdg-open index.html
 ```
 
 ## Usage
@@ -119,7 +119,7 @@ This application is compatible with all modern browsers:
 
 ```
 JS-Grading-Program/
-├── Index.html          # Main application file (HTML, CSS, and JavaScript)
+├── index.html          # Main application file (HTML, CSS, and JavaScript)
 ├── README.md           # Project documentation
 └── LICENSE.txt         # MIT License
 ```
