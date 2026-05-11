@@ -11,6 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
 </head>
 <style>
     * {
@@ -225,6 +230,31 @@
         transform: translateY(0);
     }
 
+    .reset-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #667eea;
+        background: transparent;
+        border: 2px solid #667eea;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .reset-btn:hover {
+        background: rgba(102, 126, 234, 0.08);
+        transform: translateY(-2px);
+    }
+
+    .reset-btn:active {
+        transform: translateY(0);
+    }
+
     .grade-scale {
         margin-top: 32px;
         padding-top: 24px;
@@ -339,6 +369,10 @@
                     Evaluate Performance
                 </button>
 
+                <button type="button" class="reset-btn" id="resetBtn">
+                    Reset Form
+                </button>
+
                 <div class="grade-scale">
                     <h3>Grading Scale Reference</h3>
                     <div class="grade-item">
@@ -388,6 +422,17 @@
 
         gradeInput.addEventListener('input', function () {
             clearError(gradeInput, gradeError);
+        });
+
+        const resetBtn = document.getElementById('resetBtn');
+
+        resetBtn.addEventListener('click', function () {
+            nameInput.value = '';
+            gradeInput.value = '';
+            clearError(nameInput, nameError);
+            clearError(gradeInput, gradeError);
+            resultDisplay.className = 'result-display';
+            resultDisplay.textContent = 'Awaiting evaluation...';
         });
 
         function clearError(input, errorElement) {
