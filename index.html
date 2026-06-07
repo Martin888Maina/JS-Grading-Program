@@ -118,7 +118,7 @@
         color: #a0aec0;
     }
 
-    /* Remove number input arrows */
+    /* Hides browser-native number input spinners for a consistent cross-browser appearance */
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -377,7 +377,6 @@
     </div>
 
     <script>
-        // Get references to form elements
         const form = document.getElementById('gradingForm');
         const nameInput = document.getElementById('name');
         const gradeInput = document.getElementById('grade');
@@ -391,7 +390,6 @@
             evaluateStudent();
         });
 
-        // Clear error styling when user starts typing
         nameInput.addEventListener('input', function () {
             clearError(nameInput, nameError);
         });
@@ -427,7 +425,6 @@
 
             let isValid = true;
 
-            // Validate student name - check if it's not empty and contains at least one letter
             if (!studentName || studentName.length < 2 || !/[a-zA-Z]/.test(studentName)) {
                 showError(nameInput, nameError);
                 isValid = false;
@@ -435,7 +432,6 @@
                 clearError(nameInput, nameError);
             }
 
-            // Validate grade - must be a number between 0 and 100
             if (isNaN(studentGrade) || studentGrade < 0 || studentGrade > 100) {
                 showError(gradeInput, gradeError);
                 isValid = false;
@@ -443,12 +439,10 @@
                 clearError(gradeInput, gradeError);
             }
 
-            // If validation fails, stop here
             if (!isValid) {
                 return;
             }
 
-            // Determine the performance category based on grade
             let category = "";
             let categoryClass = "";
 
@@ -469,7 +463,6 @@
                 categoryClass = "result-fail";
             }
 
-            // Update the result display with animation
             resultDisplay.className = 'result-display active';
 
             // Small delay to show the transition
